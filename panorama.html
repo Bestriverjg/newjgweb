@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://dev.jingaisheji.com/member/ -->
+<html lang="zh-ch" class="screen-desktop-wide device-desktop">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
+    <title>jgweb</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./static/zui.min.css">
+    <link rel="stylesheet" href="./static/zui-theme.css">
+    <link rel="stylesheet" href="./static/redefine.css">
+    <script language="JavaScript" type="text/javascript" src="./static/jquery-1.9.1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./static/datetimepicker.js"></script>
+</head>
+
+<body>
+<header>
+    <style>
+        @media screen and (max-width: 767px) {
+            .mobile_nav_hide {
+                display: none;
+            }
+        }
+
+        #search_input {
+            margin-top: 6px;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        #search_btn {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            opacity: .65;
+            border-radius: 5px;
+        }
+
+        .header_wrap .navbar-nav > li > a {
+            color: #fff;
+        }
+    </style>
+    <nav class="navbar navbar-default header_wrap" role="navigation" style="background-color:#454445;">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- 移动设备上的导航切换按钮 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-collapse-example">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://dev.jingaisheji.com/"><img src="./static/logo.png"
+                                                                                 height="40px" alt="金该全景网"></a>
+            </div>
+            <div class="collapse navbar-collapse navbar-collapse-example ">
+                <ul class="nav navbar-nav" style="margin:0 -10px;">
+                    <li><a href="https://dev.jingaisheji.com/">发现</a></li>
+                    <li><a href="https://dev.jingaisheji.com/pictures">全景摄影</a></li>
+                    <li><a href="https://dev.jingaisheji.com/videos">全景视频</a></li>
+                    <!-- <li ><a href="/ring_around">720环物</a></li> -->
+                    <li><a href="https://dev.jingaisheji.com/people">作者</a></li>
+                    <li><a href="https://dev.jingaisheji.com/footmarker" target="_blank">足迹</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right mobile_nav_hide">
+                    <li>
+                        <form class="navbar-form navbar-left" style="position: relative;">
+                            <div class="form-group">
+                                <input id="search_input" value="" type="text" class="form-control" maxlength="20"
+                                       placeholder="请输入全景作品名称">
+                                <button id="search_btn" type="button" class="btn btn-link"><i
+                                        class="icon icon-search"></i></button>
+                            </div>
+                        </form>
+                    </li>
+                    <li>
+                        <button style="margin-top:10px" type="button" class="btn btn-primary"
+                                onclick="javascript:window.location.href=&#39;/add/pic&#39;">
+                            <i class="cloud-upload"></i> 发布
+                        </button>
+                    </li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                           style="background:none;color:#fff;">金该效果图<b class="caret"
+                                                                       style="border-top-color:#fff;border-bottom-color:#fff;"></b></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="https://dev.jingaisheji.com/member/profile">账户管理</a></li>
+                            <li><a href="https://dev.jingaisheji.com/people/47">个人主页</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://dev.jingaisheji.com/member/project">图片管理</a></li>
+                            <li><a href="https://dev.jingaisheji.com/member/project?act=videos">视频管理</a></li>
+                            <li><a href="https://dev.jingaisheji.com/member/object_around">物体环视</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://dev.jingaisheji.com/member/mediares">素材管理</a></li>
+                            <li><a href="https://dev.jingaisheji.com/member/download">离线下载</a></li>
+                            <li class="divider"></li>
+                            <li><a href="https://dev.jingaisheji.com/member/logout">退　　出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <script>
+        $("#search_btn").click(function () {
+            var word = $.trim($("#search_input").val());
+            if (word == "") {
+                return false;
+            }
+            window.location.href = "/search?word=" + word;
+        })
+    </script>
+</header>
+
+<style type="text/css">
+    .navbar {
+        margin-bottom: 0;
+    }
+
+    .navbar-default .navbar-second li > a {
+        padding-top: 7px;
+        padding-bottom: 8px;
+    }
+
+    .navbar-default .navbar-second > .active > a, .navbar-default .navbar-second > .active > a:focus, .navbar-default .navbar-second > li > a:hover, .navbar-default .navbar-second > .active > a:hover {
+        background: none;
+        line-height: 27px;
+        border-bottom: 3px solid #4aab4e;
+    }
+</style>
+<div class="navbar" style="margin-bottom:20px;z-index:0;background:#fff;">
+    <div class="container" style="line-height:45px">
+        <div class="navbar-right navbar-default" style="background:none">
+            <ul class="navbar-second nav navbar-nav">
+                <li><a href="https://dev.jingaisheji.com/add/pic">发布作品</a></li>
+                <li class="active"><a href="https://dev.jingaisheji.com/member/project">全景图片</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/project?act=videos">全景视频</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/object_around">物体环视</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/ring_around">720环物</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/mediares">素材管理</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/download">离线下载</a></li>
+                <li><a href="https://dev.jingaisheji.com/member/redpack">场景红包</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-bottom: 20px;">
+    <style>
+        .table td {
+            line-height: 40px;
+        }
+    </style>
+    <div class="main_wrap" id="pic_wrap">
+        <div class="row">
+            <div class="col-md-3">
+                共 <strong style="font-size:18px;">39239</strong> 个作品
+            </div>
+            <div class="col-md-3">
+                <div class="input-group date form-date" data-date="" data-date-format="dd MM yyyy"
+                     data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="16" id="time_s" type="text" value="" readonly=""
+                           placeholder="开始时间">
+                    <span class="input-group-addon"><span class="icon-remove"></span></span>
+                    <span class="input-group-addon"><span class="icon-calendar"></span></span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="input-group date form-date" data-date="" data-date-format="dd MM yyyy"
+                     data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="16" id="time_e" type="text" value="" readonly=""
+                           placeholder="结束时间">
+                    <span class="input-group-addon"><span class="icon-remove"></span></span>
+                    <span class="input-group-addon"><span class="icon-calendar"></span></span>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="text" id="name" class="form-control" placeholder="作品名_当前相册">
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-info" id="O_name">搜索</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="menu" data-toggle="menu" style="width: 200px">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#atlas_modal"><i
+                            class="icon-plus-sign"></i> 新建图册
+                    </button>
+
+                    <ul class="nav nav-primary" id="atlas_nav">
+                        <li class="atlas_active" data-atlasid="8"><a href="javascript:;">
+                            <span class="altlas_name">默认图册 (35141)</span></a></li>
+                        <li data-atlasid="9">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="荣欣装潢&amp;浮生DESIGN (198)">荣欣装潢&amp;浮生DESIGN (198)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;9&#39;,&#39;荣欣装潢&amp;浮生DESIGN&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;9&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="10">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">圣都装饰 (716)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;10&#39;,&#39;圣都装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;10&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="11">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="华辰国际装饰原创中心设计1377752218-昌敏 (177)">华辰国际装饰原创中心设计1377752218-昌敏 (177)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit"
+                               onclick="atlas_edit(&#39;11&#39;,&#39;华辰国际装饰原创中心设计1377752218-昌敏&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;11&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="12">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="赛风装饰&amp;冯易建 (125)">赛风装饰&amp;冯易建 (125)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;12&#39;,&#39;赛风装饰&amp;冯易建&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;12&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="13">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">丽园装饰 (240)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;13&#39;,&#39;丽园装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;13&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="14">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="百仕合&amp;源艺装饰 (71)">百仕合&amp;源艺装饰 (71)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;14&#39;,&#39;百仕合&amp;源艺装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;14&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="15">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">万润装饰-名瑞装饰 (49)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;15&#39;,&#39;万润装饰-名瑞装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;15&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="16">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">云鸿装饰 (165)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;16&#39;,&#39;云鸿装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;16&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="17">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">清松装饰- (43)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;17&#39;,&#39;清松装饰-&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;17&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="18">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">@标题：客餐厅 (17)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;18&#39;,&#39;@标题：客餐厅&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;18&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="19">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name"
+                                      title="天晟-&amp;泰禾装饰85856088 (195)">天晟-&amp;泰禾装饰85856088 (195)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;19&#39;,&#39;天晟-&amp;泰禾装饰85856088&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;19&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="20">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="非舍&amp;艺升装饰 (209)">非舍&amp;艺升装饰 (209)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;20&#39;,&#39;非舍&amp;艺升装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;20&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="21">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="华饰臻品&amp;仙居品东18805863888 (116)">华饰臻品&amp;仙居品东18805863888 (116)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit"
+                               onclick="atlas_edit(&#39;21&#39;,&#39;华饰臻品&amp;仙居品东18805863888&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;21&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="23">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="东易日盛&amp;尚层装饰 (210)">东易日盛&amp;尚层装饰 (210)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit"
+                               onclick="atlas_edit(&#39;23&#39;,&#39;东易日盛&amp;尚层装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;23&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="24">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">开美装饰 (865)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;24&#39;,&#39;开美装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;24&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="26">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">齐厦 (263)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;26&#39;,&#39;齐厦&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;26&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="27">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name">阡陌装饰-水木南山 (178)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit" onclick="atlas_edit(&#39;27&#39;,&#39;阡陌装饰-水木南山&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;27&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="28">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="铭尚晶瑞&amp;嘉业装饰 (88)">铭尚晶瑞&amp;嘉业装饰 (88)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit"
+                               onclick="atlas_edit(&#39;28&#39;,&#39;铭尚晶瑞&amp;嘉业装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;28&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li data-atlasid="29">
+                            <a href="javascript:;" style="padding-right:2px">
+                                <span class="altlas_name" title="铭都装饰&amp;庆源装饰 (173)">铭都装饰&amp;庆源装饰 (173)</span>
+                                <span class="pull-right">
+			    			<i class="icon-edit"
+                               onclick="atlas_edit(&#39;29&#39;,&#39;铭都装饰&amp;庆源装饰&#39;)"></i>&nbsp; <i
+                                        class="icon-trash" onclick="atlas_del(&#39;29&#39;)"></i>
+			    		  </span>
+                            </a>
+                        </li>
+                        <li class="atlas_active">
+                            <input style="float:left;width:75%;" type="text" id="G_name" class="form-control"
+                                   placeholder="作品名_全相册">
+                            <button style="float:left;width:25%;" class="btn btn-info" id="O_G_name">搜索</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" onclick="setCheck(this,&#39;project_checkbox&#39;)">全选
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3" style="margin-left: -75px;">
+                        <select class="form-control" id="atlas_select">
+                            <option value="0">移动到其他图册</option>
+                            <option value="8">默认图册</option>
+                            <option value="9">荣欣装潢&amp;浮生DESIGN</option>
+                            <option value="10">圣都装饰</option>
+                            <option value="11">华辰国际装饰原创中心设计1377752218-昌敏</option>
+                            <option value="12">赛风装饰&amp;冯易建</option>
+                            <option value="13">丽园装饰</option>
+                            <option value="14">百仕合&amp;源艺装饰</option>
+                            <option value="15">万润装饰-名瑞装饰</option>
+                            <option value="16">云鸿装饰</option>
+                            <option value="17">清松装饰-</option>
+                            <option value="18">@标题：客餐厅</option>
+                            <option value="19">天晟-&amp;泰禾装饰85856088</option>
+                            <option value="20">非舍&amp;艺升装饰</option>
+                            <option value="21">华饰臻品&amp;仙居品东18805863888</option>
+                            <option value="23">东易日盛&amp;尚层装饰</option>
+                            <option value="24">开美装饰</option>
+                            <option value="26">齐厦</option>
+                            <option value="27">阡陌装饰-水木南山</option>
+                            <option value="28">铭尚晶瑞&amp;嘉业装饰</option>
+                            <option value="29">铭都装饰&amp;庆源装饰</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="list_wrap" id="list_wrap_content_async_container" style="display:none">
+                    <div id="list_wrap_content_async"></div>
+                </div>
+                <!-- 获取正在发布的项目列表 -->
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        works_get_async();
+                        interval_works_async_lists = setInterval(function () {
+                            console.log('start to get async works');
+                            works_get_async();
+                        }, 10000);
+                    });
+
+                    function works_get_async() {
+                        $.post("/member/project", {act: 'list_works_async'}, function (res) {
+                            var h = '';
+                            var data = res.res;
+                            if (res.count == 0) {
+                                clearInterval(interval_works_async_lists);
+                                list(1, true);
+                            }
+                            for (var i = 0; i < data.length; i++) {
+                                var o = data[i];
+                                h += '<div class="items">' +
+                                    '<div class="item">' +
+                                    '<div class="item-content">' +
+                                    '<div class="pull-left">' +
+                                    '<img src="' + o.thumb_path + '" width="60" height="60" class="img-rounded" >' +
+                                    '</div>' +
+                                    '<div class="pull-left works_intro" >' +
+                                    '<a href="javascript:void(0);" class="works_name">' + o.name + '</a>' +
+                                    '<div class="text-muted">' +
+                                    '<span>' + o.create_time + '</span>' +
+                                    '</div>' +
+                                    '</div>';
+                                if (o.status == 1) {
+                                    h += '<div class="pull-left works_intro" style="padding-left:50px">' +
+                                        '<div style="color:red">发布失败：' + o.note + '</div>' +
+                                        '</div>' +
+                                        '<div class="pull-right works_edit">' +
+                                        '<span><a href="javascript:void(0);" onclick="javascript:works_del_async(' + o.id + ');">删除</a></span>' +
+                                        '</div>';
+                                } else {
+                                    h += '<div class="pull-left works_intro" style="padding-left:50px">' +
+                                        '<img src="./static/images/publishing.gif" />' +
+                                        '<div class="text-muted">正在生成全景，大概需要2-5分钟...</div>' +
+                                        '</div>' +
+                                        '<div class="pull-right works_edit">' +
+                                        '<span><a href="javascript:void(0);" onclick="javascript:works_del_async(' + o.id + ');">删除</a></span>' +
+                                        '</div>';
+                                }
+                                h += '</div>' +
+                                    '</div>' +
+                                    '</div>';
+                            }
+                            $("#list_wrap_content_async").html(h);
+                            if (h != '') {
+                                $("#list_wrap_content_async_container").show();
+                            } else {
+                                $("#list_wrap_content_async_container").hide();
+                            }
+                        }, "JSON");
+                    }
+
+                    function works_del_async(wid) {
+                        bootbox.confirm({
+                            message: "确定要删除吗?",
+                            buttons: {
+                                confirm: {
+                                    label: '确认',
+                                    className: 'btn-primary'
+                                },
+                                cancel: {
+                                    label: '取消',
+                                    className: 'btn-default'
+                                }
+                            },
+                            title: "提示：",
+                            callback: function (result) {
+                                if (result) {
+                                    alert_notice("等待执行...", "success", 'top', 5000);
+                                    $.post("/member/project", {act: 'works_del_async', wid: wid}, function (data) {
+                                        alert_notice('删除成功');
+                                        works_get_async();
+                                    }, "JSON");
+                                }
+                            }
+                        });
+                    }
+
+                </script>
+
+                <div class="list_wrap">
+                    <div id="list_wrap_content">
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55235"></div>
+                                    <div class="pull-left"><img src="./static/thumb.jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/4b556a65b9745992" class="works_name"
+                                            target="_blank">ADD安邸设计-云顶2-2402 客厅</a><a
+                                            href="https://dev.jingaisheji.com/tour/4b556a65b9745992"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 12:18:01</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;1</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;4b556a65b9745992&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55235)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55235">编辑</a></span><span><a
+                                            onclick="works_del(55235)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55234"></div>
+                                    <div class="pull-left"><img src="./static/thumb(1).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/4137a18ef363ab80" class="works_name"
+                                            target="_blank">预告｜ 合时新作·御湖公馆</a><a
+                                            href="https://dev.jingaisheji.com/tour/4137a18ef363ab80"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 12:13:26</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;7</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;4137a18ef363ab80&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55234)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55234">编辑</a></span><span><a
+                                            onclick="works_del(55234)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55232"></div>
+                                    <div class="pull-left"><img src="./static/thumb(2).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/0d46e6e513e35d6f" class="works_name"
+                                            target="_blank">华鸿中央原墅</a><a
+                                            href="https://dev.jingaisheji.com/tour/0d46e6e513e35d6f"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 12:11:28</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;2</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;0d46e6e513e35d6f&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55232)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55232">编辑</a></span><span><a
+                                            onclick="works_del(55232)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55231"></div>
+                                    <div class="pull-left"><img src="./static/thumb(3).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/62d982a9e8cc2762" class="works_name"
+                                            target="_blank">福建九鼎-璀璨5号楼2008 客厅</a><a
+                                            href="https://dev.jingaisheji.com/tour/62d982a9e8cc2762"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 12:03:32</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;3</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;62d982a9e8cc2762&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55231)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55231">编辑</a></span><span><a
+                                            onclick="works_del(55231)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55230"></div>
+                                    <div class="pull-left"><img src="./static/thumb(4).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/18526ef98cbd52a4" class="works_name"
+                                            target="_blank">吾悦刘女士 客厅</a><a
+                                            href="https://dev.jingaisheji.com/tour/18526ef98cbd52a4"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 12:03:05</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;1</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;18526ef98cbd52a4&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55230)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55230">编辑</a></span><span><a
+                                            onclick="works_del(55230)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="53251"></div>
+                                    <div class="pull-left"><img src="./static/thumb(5).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/d14c35c8773487b1" class="works_name"
+                                            target="_blank">庆源装饰-海悦城 客厅</a><a
+                                            href="https://dev.jingaisheji.com/tour/d14c35c8773487b1"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-04-30 14:35:48</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;3</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;382</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;d14c35c8773487b1&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(53251)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=53251">编辑</a></span><span><a
+                                            onclick="works_del(53251)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55229"></div>
+                                    <div class="pull-left"><img src="./static/thumb(6).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/4807fe8bdff4f9c9" class="works_name"
+                                            target="_blank">夏杭琪—阳光城檀悦-118㎡</a><a
+                                            href="https://dev.jingaisheji.com/tour/4807fe8bdff4f9c9"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 11:53:37</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;3</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;4807fe8bdff4f9c9&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55229)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55229">编辑</a></span><span><a
+                                            onclick="works_del(55229)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55001"></div>
+                                    <div class="pull-left"><img src="./static/thumb(7).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/7efd5ef00c8da4fc" class="works_name"
+                                            target="_blank">兴盛苑</a><a
+                                            href="https://dev.jingaisheji.com/tour/7efd5ef00c8da4fc"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-25 14:21:33</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;29</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;7efd5ef00c8da4fc&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55001)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55001">编辑</a></span><span><a
+                                            onclick="works_del(55001)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="54194"></div>
+                                    <div class="pull-left"><img src="./static/thumb(8).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/8ee58c5631c03b26" class="works_name"
+                                            target="_blank">品盛装饰—云顶6#2902</a><a
+                                            href="https://dev.jingaisheji.com/tour/8ee58c5631c03b26"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-15 12:04:43</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;66</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;8ee58c5631c03b26&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(54194)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=54194">编辑</a></span><span><a
+                                            onclick="works_del(54194)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items">
+                            <div class="item">
+                                <div class="item-content">
+                                    <div class="pull-left"><input type="checkbox" style="margin:20px 10px 0 0"
+                                                                  name="project_checkbox" data-pid="55228"></div>
+                                    <div class="pull-left"><img src="./static/thumb(9).jpg" width="60"
+                                                                height="60" class="img-rounded"></div>
+                                    <div class="pull-left works_intro"><a
+                                            href="https://dev.jingaisheji.com/tour/d5ed2a8188c09c2f" class="works_name"
+                                            target="_blank">鹿鸣画廊 大厅</a><a
+                                            href="https://dev.jingaisheji.com/tour/d5ed2a8188c09c2f"
+                                            class="works_preview" target="_blank">预览</a>
+                                        <div class="text-muted"><span>2020-05-28 11:41:22</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-thumbs-o-up"></i>&nbsp;0</span>&nbsp;&nbsp;<span><i
+                                                class="icon icon-eye-open"></i>&nbsp;12</span></div>
+                                    </div>
+                                    <div class="pull-right works_edit"><span><a
+                                            onclick="fenxiang(&#39;d5ed2a8188c09c2f&#39;)">分享</a></span><span><a
+                                            onclick="showcomment(55228)">说一说</a></span><span><a
+                                            href="https://dev.jingaisheji.com/edit/pic?pid=55228">编辑</a></span><span><a
+                                            onclick="works_del(55228)">删除</a></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="pager_wrap">
+                        <div class="pager_wrap">
+                            <ul class="pager">
+                                <li class="previous disabled"><a> «</a></li>
+                                <li class="active"><a>1</a></li>
+                                <li><a href="javascript:list(2);">2</a></li>
+                                <li><a href="javascript:list(3);">3</a></li>
+                                <li><a>...</a></li>
+                                <li><a href="javascript:list(3515);">3515</a></li>
+                                <li class="next"><a href="javascript:list(2);"> » </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--评论框-->
+    <div class="main_wrap" id="comment_wrap" style="display:none">
+        <div class="row">
+            <div class="col-md-1">
+                <strong style="font-size:18px;cursor:pointer;" class="text-primary" onclick="hidecomment()"><i
+                        class="icon-reply"></i>&nbsp;返回</strong>
+            </div>
+            <div class="col-md-3">
+                共 <strong style="font-size:18px;" id="comment_count"></strong> 条评论
+            </div>
+            <div class="col-md-2 col-md-offset-5">
+                <input type="text" id="content" class="form-control" placeholder="内容">
+            </div>
+            <div class="col-md-1 ">
+                <button class="btn btn-info" onclick="list_comments(1,false)">搜索</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top:30px;">
+            <div class="col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>头像</th>
+                        <th>昵称</th>
+                        <th>内容</th>
+                        <th>评论时间</th>
+                        <th>性别</th>
+                        <th>省份</th>
+                        <th>城市</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="comment_pager_wrap" style="text-align:center"></div>
+    </div>
+    <!--评论框end-->
+
+    <!--新建图册弹框-->
+    <div class="modal fade" id="atlas_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                            class="sr-only">关闭</span></button>
+                    <h4 class="modal-title">新增图册</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="atlas_id" value="0">
+                    <input class="form-control form-focus" autofocus="" type="text" placeholder="请输入名称" id="atlas_name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="atlas_save">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        $(function () {
+            list(1, true);
+        })
+
+    </script>
+    <!--分享框-->
+    <div class="modal fade" id="fx_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                            class="sr-only">关闭</span></button>
+                    <h4 class="modal-title">手机扫描二维码分享给朋友：</h4>
+                </div>
+                <div class="modal-body" style="text-align:center">
+                    <img id="fx_img" src="https://dev.jingaisheji.com/member/" width="200" height="200">
+                    <div class="row" style="margin-top: 15px">
+                        <label class="col-md-2 control-label">作品地址</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="workslocation" name="videoname" value="">
+                        </div>
+
+                    </div>
+                    <div class="row" style="margin-top: 15px">
+                        <label class="col-md-2 control-label">嵌入到网站</label>
+
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="web_site" name="web_site" frameborder="no"
+                                   border="0">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px">
+                        <label class="col-md-2 control-label">嵌入到论坛</label>
+
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="forum" name="forum" frameborder="no" border="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="./static/jquery.zclip.min.js"></script>
+<script>
+    var cdn_host = "http://cdn.jingaisheji.com/";
+    var host = "http://dev.jingaisheji.com/";
+    var pageSize = 10;
+    var comment_c_pid;
+
+    $(function () {
+
+        $(".form-date").datetimepicker({
+            language: "zh-CN",
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: "yyyy-mm-dd"
+        });
+        $("#atlas_nav .altlas_name").click(function () {
+            var $li = $(this).parents('li');
+            if (!$li.hasClass("atlas_active")) {
+                $li.siblings().removeClass("atlas_active");
+                $li.addClass("atlas_active");
+            }
+            list(1, true);
+        })
+
+        $("#atlas_save").click(function () {
+            $(this).attr("disabled", true);
+            var name = $.trim($("#atlas_name").val());
+            if (name.length <= 0 || name.length > 200) {
+                alert_notice("请输入0到200长度的名称！");
+                return false;
+            }
+            $.post("/member/project", {
+                'act': 'atlas_update',
+                'name': name,
+                'atlas_id': $("#atlas_id").val()
+            }, function (result) {
+                result = eval("(" + result + ")");
+                if (result.flag) {
+                    alert_notice("操作成功", "success");
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 1000);
+                } else {
+                    alert_notice(result.msg);
+                    $("#atlas_modal").modal('hide');
+                }
+            })
+            $("#atlas_save").removeAttr('disabled');
+
+        });
+        $("#atlas_select").change(function () {
+            var atlas_id = $(this).val();
+            if (atlas_id <= 0) {
+                return false;
+            }
+            var pids = new Array;
+            $("input[name='project_checkbox']").each(function () {
+                if ($(this).is(':checked')) {
+                    pids.push($(this).data("pid"));
+                }
+            });
+            if (pids.length == 0) {
+                alert_notice("请先勾选要移动的项目");
+                return false;
+            }
+            $.post("/member/project", {
+                "act": "move_project",
+                "atlas_id": atlas_id,
+                "pids": JSON.stringify(pids)
+            }, function (result) {
+                result = eval("(" + result + ")");
+                if (result.flag) {
+                    alert_notice("操作成功", "success");
+                    window.location.reload();
+                } else {
+                    alert_notice(result.msg);
+                }
+            })
+        });
+    });
+
+
+    //监听
+    $("#O_G_name").click(function () {
+        $(this).parents('.row').siblings().find('input').val('');
+        list(1);
+    })
+    $("#O_name").click(function () {
+        $(this).parents('.row').siblings().find('input').val('');
+        list(1);
+    })
+
+    function list(currentPage, reset, G) {
+        var obj = alert_notice("页面加载中...", 'success');
+        var atlas_id = $("#atlas_nav .atlas_active").data("atlasid");
+        var name, time_s, time_e;
+        var G_name = $.trim($("#G_name").val());
+        if (!reset) {
+            if (G_name) {
+                name = G_name;
+                G = 'G';
+            } else {
+                name = $.trim($("#name").val());
+            }
+            time_s = $("#time_s").val();
+            time_e = $("#time_e").val();
+            if (time_s != "" && time_e == "") {
+                alert_notice("请选择结束时间");
+                return false;
+            }
+            if (time_s == "" && time_e != "") {
+                alert_notice("请选择开始时间");
+                return false;
+            }
+        } else {
+            $("#name").val("");
+            $("#time_s").val("");
+            $("#time_e").val("");
+            $("#G_name").val("");
+        }
+        $("#list_wrap_content").html("");
+        $.post("/member/project", {
+            "act": "list_data",
+            "pageSize": pageSize,
+            "page": currentPage,
+            "name": name,
+            "atlas": atlas_id,
+            "time_s": time_s,
+            "time_e": time_e,
+            "G": G
+        }, function (res) {
+            var res = eval("(" + res + ")");
+            var h = "", data = res.list;
+            if (data.length == 0) {
+                h = '<span style="width:100px;text-align:center;margin-left:40%;margin-top:50px;font-size:16px;display:inline-block">没有结果!</span>';
+                $("#pager_wrap").html("");
+            } else {
+                for (var i = 0; i < data.length; i++) {
+                    var o = data[i];
+                    h += '<div class="items">' +
+                        '<div class="item">' +
+                        '<div class="item-content">' +
+                        '<div class=pull-left><input type="checkbox" style="margin:20px 10px 0 0" name="project_checkbox" data-pid="' + o.pk_works_main + '"></div>' +
+                        '<div class="pull-left">' +
+                        '<img src="' + o.thumb_path + '" width="60" height="60" class="img-rounded" >' +
+                        '</div>' +
+                        '<div class="pull-left works_intro" >' +
+                        '<a href="/tour/' + o.view_uuid + '" class="works_name" target="_blank">' + o.name + '</a>' +
+                        '<a href="/tour/' + o.view_uuid + '" class="works_preview" target="_blank">预览</a>' +
+                        '<div class="text-muted">' +
+                        '<span>' + o.create_time + '</span>' +
+                        '&nbsp;&nbsp;' +
+                        '<span><i class="icon icon-thumbs-o-up"></i>&nbsp;' + o.praised_num + '</span>&nbsp;&nbsp;' +
+                        '<span><i class="icon icon-eye-open"></i>&nbsp;' + o.browsing_num + '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="pull-right works_edit">' +
+                        '<span><a onclick="fenxiang(\'' + o.view_uuid + '\')">分享</a></span>' +
+                        '<span><a onclick="showcomment(' + o.pk_works_main + ')">说一说</a></span>' +
+                        '<span><a href="/edit/pic?pid=' + o.pk_works_main + '">编辑</a></span>' +
+                        '<span><a onclick="works_del(' + o.pk_works_main + ')">删除</a></span>' +
+                        '</div>' +
+                        ' </div>' +
+                        ' </div>' +
+                        '</div>';
+                }
+                var pg = new Page('list', res.pageCount, res.currentPage);
+                $("#pager_wrap").html(pg.printHtml());
+            }
+            $("#list_wrap_content").html(h);
+            pageSize = res.pageSize;
+            obj.hide();
+        })
+    }
+
+    function list_comments(currentPage, reset) {
+        var obj = alert_notice("评论加载中...", 'success');
+        var content;
+        if (!reset) {
+            content = $("#content").val();
+        } else {
+            $("#content").val("");
+        }
+        $.post("/member/comment", {
+            "act": "list",
+            "pageSize": pageSize,
+            "currentPage": currentPage,
+            "pid": comment_c_pid,
+            "content": content
+        }, function (res) {
+            var res = eval("(" + res + ")");
+            var h = "", data = res.list;
+            $("#comment_count").html(res.total);
+            if (data.length == 0) {
+                //TODO
+            } else {
+                for (var i = 0; i < data.length; i++) {
+                    var o = data[i];
+                    h += '<tr>' +
+                        '<td><input type="checkbox" name="comment_checkbox"></td>' +
+                        '<td><img src="' + o.head_img + '" width="40"></td>' +
+                        '<td>' + o.nickname + '</td>' +
+                        '<td>' + o.content + '</td>' +
+                        '<td>' + o.add_time + '</td>' +
+                        '<td>' + o.sex + '</td>' +
+                        '<td>' + o.province + '</td>' +
+                        '<td>' + o.city + '</td>' +
+                        '<td><span class="text-danger" style="cursor:pointer" onclick="comment_del_one(' + o.id + ')"><i class="icon-trash"></i></span></td>' +
+                        '</tr>';
+                }
+                var pg = new Page('list_comments', res.pageCount, res.currentPage);
+                $("#comment_pager_wrap").html(pg.printHtml());
+            }
+            $("#comment_wrap table tbody").html(h);
+            pageSize = res.pageSize;
+            obj.hide();
+        })
+    }
+
+    function showcomment(pid) {
+        comment_c_pid = pid;
+        list_comments(1, true);
+        $("#pic_wrap").hide();
+        $("#comment_wrap").show();
+    }
+
+    function hidecomment() {
+        $("#pic_wrap").show();
+        $("#comment_wrap").hide();
+    }
+
+    function list_videos(currentPage, reset) {
+        var obj = alert_notice("页面加载中...", 'success');
+        var vname, time_s, time_e;
+        if (!reset) {
+            vname = $.trim($("#vname").val());
+            time_s = $("#time_s").val();
+            time_e = $("#time_e").val();
+            if (time_s != "" && time_e == "") {
+                alert_notice("请选择结束时间");
+                return false;
+            }
+            if (time_s == "" && time_e != "") {
+                alert_notice("请选择开始时间");
+                return false;
+            }
+        } else {
+            $("#vname").val("");
+            $("#time_s").val("");
+            $("#time_e").val("");
+        }
+        $("#list_wrap_content").html("");
+        $.post("/member/project", {
+            "act": "list_videos",
+            "pageSize": pageSize,
+            "page": currentPage,
+            "vname": vname,
+            "time_s": time_s,
+            "time_e": time_e
+        }, function (res) {
+            var res = eval("(" + res + ")");
+            var h = "", data = res.list;
+            if (data.length == 0) {
+                h = '<span style="width:100px;text-align:center;margin-left:40%;margin-top:50px;font-size:16px;display:inline-block">没有结果!</span>';
+                $("#pager_wrap").html("");
+            } else {
+                for (var i = 0; i < data.length; i++) {
+                    var o = data[i];
+                    h += '<div class="items">' +
+                        '<div class="item">' +
+                        '<div class="item-content">' +
+                        '<div class=pull-left><input type="checkbox" style="margin:20px 10px 0 0" name="project_checkbox" data-pid="' + o.id + '"></div>' +
+                        '<div class="pull-left">' +
+                        '<img src="' + (o.thumb_path ? o.thumb_path : "./static/images/play.png") + '" width="60" height="60" class="img-rounded" >' +
+                        '</div>' +
+                        '<div class="pull-left works_intro" >' +
+                        '<a href="' + cdn_host + 'video/play.html?vid=' + o.id + '" class="works_name" target="_blank">' + o.vname + '</a>&nbsp;&nbsp;&nbsp;&nbsp;' +
+                        (o.state == 0 ? '<span class="text-warning">等待编辑</span>' :
+                            (o.flag_publish == 0 ? '<span class="text-danger">未发布</span>' : '<span class="text-success">已发布</span>')) +
+                        '<a href="' + cdn_host + 'video/play.html?vid=' + o.id + '" class="works_preview" target="_blank">预览</a>' +
+                        '<div class="text-muted">' +
+                        '<span>' + o.create_time + '</span>' +
+                        '&nbsp;&nbsp;' +
+                        '<span><i class="icon icon-thumbs-o-up"></i>&nbsp;' + o.praised_num + '</span>&nbsp;&nbsp;' +
+                        '<span><i class="icon icon-eye-open"></i>&nbsp;' + o.browsing_num + '</span>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="pull-right works_edit">' +
+                        '<span>排序：<a id="sort_2_' + o.id + '" onclick="sort(' + o.id + ',' + o.user_sort + ',2)">' + o.user_sort + '</a></span>' +
+                        '<span>是否推荐：<a id="recommend_2_' + o.id + '" onclick="tuijian(' + o.id + ',2)" data-recommend="' + o.user_recommend + '">' + (o.user_recommend == 0 ? "<i class=\"icon-times\"></i>" : "<i class=\"icon-check\" style=\"color:#c40000\"></i>") + '</a></span>' +
+                        '<span><a onclick="fenxiang(\'' + o.id + '\',\'' + (o.cdn_host ? o.cdn_host : host) + '\')">分享</a></span>' +
+                        '<span><a href="/edit/video?vid=' + o.id + '">编辑</a></span>' +
+                        '<span><a onclick="video_del(' + o.id + ')">删除</a></span>' +
+                        '</div>' +
+                        ' </div>' +
+                        ' </div>' +
+                        '</div>';
+                }
+                var pg = new Page('list_videos', res.pageCount, res.currentPage);
+                $("#pager_wrap").html(pg.printHtml());
+            }
+            $("#list_wrap_content").html(h);
+            pageSize = res.pageSize;
+            obj.hide();
+        })
+    }
+
+
+    function atlas_edit(atlas_id, name) {
+        $("#atlas_id").val(atlas_id);
+        $("#atlas_name").val(name);
+        $("#atlas_modal").modal('show');
+    }
+
+    function atlas_del(atlas_id) {
+        bootbox.confirm({
+            message: "确定要删除一个分类吗?",
+            buttons: {
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default'
+                }
+            },
+            title: "提示：",
+            callback: function (result) {
+                if (result) {
+                    alert_notice("等待执行...", "success", 'top', 5000);
+                    $.post("/member/project", {
+                        'act': 'atlas_del',
+                        'atlas_id': atlas_id
+                    }, function (result) {
+                        result = eval("(" + result + ")");
+                        if (result.flag) {
+                            alert_notice("操作成功", "success");
+                            window.location.reload();
+                        } else {
+                            alert_notice(result.msg);
+                        }
+                    })
+                }
+            }
+        });
+
+    }
+
+    function sort(id, value, type) {
+        bootbox.prompt({
+            buttons: {
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default'
+                }
+            },
+            value: value ? value : "",
+            title: "排序默认为999,越小越靠前",
+            callback: function (result) {
+                if (result != null) {
+                    result = parseInt(result);
+                    if (result < 1 || result > 999) {
+                        alert_notice("请输入1到999之间的值");
+                        return false;
+                    } else {
+                        $.post("/member/project", {
+                            "id": id,
+                            "type": type,
+                            "user_sort": result,
+                            "edit": 1,
+                            'act': "edit_sort_recommend"
+                        }, function (res) {
+                            res = eval("(" + res + ")");
+                            if (res.status == 1) {
+                                alert_notice("修改成功", "success");
+                                $("#sort_" + type + "_" + id).text(result);
+                            } else {
+                                alert_notice(res.msg);
+                            }
+                        })
+                    }
+                }
+            }
+        })
+    }
+
+    function tuijian(id, type) {
+        $.post("/member/project", {
+            "id": id,
+            "type": type,
+            "edit": 2,
+            'act': "edit_sort_recommend"
+        }, function (res) {
+            res = eval("(" + res + ")");
+            if (res.status == 1) {
+                alert_notice("修改成功", "success");
+                var html = res.recommend == 0 ? '<i class="icon-times"></i>' : '<i class="icon-check" style="color:#c40000;"></i>';
+                $("#recommend_" + type + "_" + id).html(html);
+            } else {
+                alert_notice(res.msg);
+            }
+        })
+    }
+
+    function comment_del_one(oid) {
+        var params = new Array();
+        params.push(oid);
+        do_comment_del(params);
+    }
+
+    function do_comment_del(params) {
+        bootbox.confirm({
+            message: "确定要删除该评论吗?",
+            buttons: {
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default'
+                }
+            },
+            title: "提示：",
+            callback: function (result) {
+                if (result) {
+                    alert_notice("等待执行...", "success", 'top', 5000);
+                    $.post("/member/comment", {
+                        "act": "delete",
+                        "params": JSON.stringify(params)
+                    }, function (result) {
+                        result = eval("(" + result + ")");
+                        if (result.flag) {
+                            alert_notice("操作成功", "success");
+                            list_comments(1);
+                        } else {
+                            alert_notice(result.msg);
+                        }
+                    })
+                }
+            }
+        });
+    }
+
+    function works_del(pid) {
+        bootbox.confirm({
+            message: "确定要删除该项目吗?",
+            buttons: {
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default'
+                }
+            },
+            title: "提示：",
+            callback: function (result) {
+                if (result) {
+                    alert_notice("等待执行...", "success", 'top', 5000);
+                    $.post("/member/project", {
+                        "act": "works_del",
+                        "pid": pid
+                    }, function (result) {
+                        result = eval("(" + result + ")");
+                        if (result.flag) {
+                            alert_notice("操作成功", "success");
+                            window.location.reload();
+                        } else {
+                            alert_notice(result.msg);
+                        }
+                    })
+                }
+            }
+        });
+    }
+
+    function video_del(vid) {
+        bootbox.confirm({
+            message: "确定要删除该项目吗?",
+            buttons: {
+                confirm: {
+                    label: '确认',
+                    className: 'btn-primary'
+                },
+                cancel: {
+                    label: '取消',
+                    className: 'btn-default'
+                }
+            },
+            title: "提示：",
+            callback: function (result) {
+                if (result) {
+                    alert_notice("等待执行...", "success", 'top', 5000);
+                    $.post("/member/project", {
+                        "act": "video_del",
+                        "vid": vid
+                    }, function (result) {
+                        result = eval("(" + result + ")");
+                        if (result.flag) {
+                            alert_notice("操作成功", "success");
+                            window.location.reload();
+                        } else {
+                            alert_notice(result.msg);
+                        }
+                    })
+                }
+            }
+        });
+    }
+
+    function fenxiang(data_id, data_host) {
+        var text;
+        var qrcode_src;
+        if (data_host) {
+            text = data_host + "video/play.html?vid=" + data_id;
+            qrcode_src = "/qrcode.php?act=video&vid=" + data_id;
+        } else {
+            text = host + "/tour/" + data_id;
+            qrcode_src = "/qrcode.php?viewid=" + data_id;
+        }
+        $("#fx_img").attr("src", qrcode_src);
+        $("#fx_modal").modal("show");
+        $("#workslocation").val(text);
+        $("#web_site").val('<iframe src="' + text + '" frameborder="no" border="0" style="width: 1000px;height: 600px;" allowfullscreen="true"></iframe>');
+        $("#forum").val('<iframe src="' + text + '" frameborder="no" border="0" style="width: 1000px;height: 600px;"></iframe>');
+    }
+
+</script>
+
+
+<style type="text/css">
+    .footer {
+        height: 75px;
+        font-size: 12px;
+        clear: both;
+        display: none
+    }
+
+    .footer ul {
+        height: 75px;
+        line-height: 75px;
+    }
+
+    .footer-logo {
+        height: 75px;
+        line-height: 75px;
+    }
+
+    .cooperative p {
+        margin: 0;
+    }
+
+    .cooperative p:nth-child(1) {
+        font-size: 12px;
+    }
+
+    .cooperative p:nth-child(2) {
+        font-size: 9px;
+    }
+
+    .ab {
+        position: absolute;
+        bottom: 0;
+    }
+
+    @media (max-width: 470px) {
+        .footer {
+            position: relative;
+            height: 94px;
+        }
+
+        .footer ul {
+            margin-left: 5px;
+            width: 200px;
+        }
+
+        .footer ul li a {
+            padding: 5px 2px;
+        }
+
+        .footer-logo > a > img {
+            vertical-align: 14px;
+        }
+
+        .footer-nav > li {
+            line-height: 50px;
+        }
+
+        .cooperative > p > a > img {
+            width: 61px
+        }
+
+        .cooperative {
+            width: 100%;
+            position: absolute;
+            top: 8px;
+            right: 7px;
+        }
+
+        .hz {
+            text-align: center;
+        }
+
+        .bq {
+            text-align: center;
+        }
+
+    }
+</style>
+<footer class="footer" style="display: block;">
+    <div class="footer-warper">
+        <div class="footer-logo"><a href="https://dev.jingaisheji.com/member/#"><img src="./static/logo.png"></a>
+        </div>
+        <ul class="footer-nav">
+            <li>
+            </li>
+        </ul>
+        <div class="cooperative" style="float:right">
+            <p class="qq"><a target="blank"
+                             href="http://wpa.qq.com/msgrd?V=3&amp;uin=800117857&amp;Site=%E9%87%91%E8%AF%A5%E5%85%A8%E6%99%AF%E7%BD%91&amp;Menu=yes"><img
+                    src="./static/qq_online.png" style="cursor:pointer;"></a></p>
+            <div class="clearfix" style="height:5px"></div>
+            <p class="hz">合作电话：15868009907 </p>
+            <p class="bq">Copyright©2016 金该全景网 All Rights Reserved <a style="color: #bfbfbf;text-decoration: underline;"
+                                                                      href="https://dev.jingaisheji.com/member/#"
+                                                                      target="_blank"></a>
+                <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278696478'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/stat.php%3Fid%3D1278696478%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+                <span id="cnzz_stat_icon_1278696478"><a href="https://www.cnzz.com/stat/website.php?web_id=1278696478"
+                                                        target="_blank" title="站长统计"><img border="0" hspace="0"
+                                                                                          vspace="0"
+                                                                                          src="./static/pic.gif"></a></span>
+                <script src="./static/stat.php" type="text/javascript"></script>
+                <script src="./static/core.php" charset="utf-8" type="text/javascript"></script>
+            </p>
+        </div>
+    </div>
+</footer>
+<script language="JavaScript" type="text/javascript" src="./static/jquery.form.js"></script>
+<script language="JavaScript" type="text/javascript" src="./static/bootbox.js"></script>
+<script language="JavaScript" type="text/javascript" src="./static/pager.js"></script>
+<script language="JavaScript" type="text/javascript" src="./static/common.js"></script>
+<script language="JavaScript" type="text/javascript" src="./static/zui.js"></script>
+<script>
+    var f_resize_time;
+    window.onload = function () {
+        f_resize_time = setTimeout(resizeFooter, 1000);
+        // $(window).bind("resize",function(){
+        // 	$("footer").hide();
+        // 	if(f_resize_time) clearTimeout(f_resize_time);
+        // 	f_resize_time = setTimeout(resizeFooter,100);
+        // })
+        $(document).bind("resize", function () {
+            $("footer").hide();
+            if (f_resize_time) clearTimeout(f_resize_time);
+            f_resize_time = setTimeout(resizeFooter, 100);
+        })
+    }
+
+    function resizeFooter() {
+        if ($(window).height() > $(document.body).height()) {
+            $("footer").addClass("ab").show();
+        } else {
+            $("footer").removeClass("ab").show();
+        }
+    }
+</script>
+
+
+<div class="datetimepicker dropdown-menu datetimepicker-dropdown-top-right"
+     style="top: -525px; left: 705.5px; z-index: 100039;">
+    <div class="datetimepicker-minutes" style="display: none;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">28 五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="minute">12:00</span><span class="minute">12:05</span><span class="minute">12:10</span><span
+                        class="minute">12:15</span><span class="minute active">12:20</span><span
+                        class="minute">12:25</span><span class="minute">12:30</span><span
+                        class="minute">12:35</span><span class="minute">12:40</span><span
+                        class="minute">12:45</span><span class="minute">12:50</span><span class="minute">12:55</span>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-hours" style="display: none;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">28 五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span
+                        class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span
+                        class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span
+                        class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span
+                        class="hour">11:00</span><span class="hour active">12:00</span><span
+                        class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span
+                        class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span
+                        class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span
+                        class="hour">22:00</span><span class="hour">23:00</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-days" style="display: block;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            <tr>
+                <th class="dow">一</th>
+                <th class="dow">二</th>
+                <th class="dow">三</th>
+                <th class="dow">四</th>
+                <th class="dow">五</th>
+                <th class="dow">六</th>
+                <th class="dow">日</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="day old">27</td>
+                <td class="day old">28</td>
+                <td class="day old">29</td>
+                <td class="day old">30</td>
+                <td class="day">1</td>
+                <td class="day">2</td>
+                <td class="day">3</td>
+            </tr>
+            <tr>
+                <td class="day">4</td>
+                <td class="day">5</td>
+                <td class="day">6</td>
+                <td class="day">7</td>
+                <td class="day">8</td>
+                <td class="day">9</td>
+                <td class="day">10</td>
+            </tr>
+            <tr>
+                <td class="day">11</td>
+                <td class="day">12</td>
+                <td class="day">13</td>
+                <td class="day">14</td>
+                <td class="day">15</td>
+                <td class="day">16</td>
+                <td class="day">17</td>
+            </tr>
+            <tr>
+                <td class="day">18</td>
+                <td class="day">19</td>
+                <td class="day">20</td>
+                <td class="day">21</td>
+                <td class="day">22</td>
+                <td class="day">23</td>
+                <td class="day">24</td>
+            </tr>
+            <tr>
+                <td class="day">25</td>
+                <td class="day">26</td>
+                <td class="day">27</td>
+                <td class="day today active">28</td>
+                <td class="day">29</td>
+                <td class="day">30</td>
+                <td class="day">31</td>
+            </tr>
+            <tr>
+                <td class="day new">1</td>
+                <td class="day new">2</td>
+                <td class="day new">3</td>
+                <td class="day new">4</td>
+                <td class="day new">5</td>
+                <td class="day new">6</td>
+                <td class="day new">7</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-months" style="display: none;">
+        <table class="table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="month">一月</span><span class="month">二月</span><span
+                        class="month">三月</span><span class="month">四月</span><span class="month active">五月</span><span
+                        class="month">六月</span><span class="month">七月</span><span class="month">八月</span><span
+                        class="month">九月</span><span class="month">十月</span><span class="month">十一月</span><span
+                        class="month">十二月</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-years" style="display: none;">
+        <table class="table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">2020-2029</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="year old">2019</span><span class="year active">2020</span><span
+                        class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span
+                        class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span
+                        class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span
+                        class="year old">2030</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="datetimepicker dropdown-menu datetimepicker-dropdown-top-right"
+     style="top: -525px; left: 968px; z-index: 100079;">
+    <div class="datetimepicker-minutes" style="display: none;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">28 五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="minute">12:00</span><span class="minute">12:05</span><span class="minute">12:10</span><span
+                        class="minute">12:15</span><span class="minute active">12:20</span><span
+                        class="minute">12:25</span><span class="minute">12:30</span><span
+                        class="minute">12:35</span><span class="minute">12:40</span><span
+                        class="minute">12:45</span><span class="minute">12:50</span><span class="minute">12:55</span>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-hours" style="display: none;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">28 五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="hour">0:00</span><span class="hour">1:00</span><span
+                        class="hour">2:00</span><span class="hour">3:00</span><span class="hour">4:00</span><span
+                        class="hour">5:00</span><span class="hour">6:00</span><span class="hour">7:00</span><span
+                        class="hour">8:00</span><span class="hour">9:00</span><span class="hour">10:00</span><span
+                        class="hour">11:00</span><span class="hour active">12:00</span><span
+                        class="hour">13:00</span><span class="hour">14:00</span><span class="hour">15:00</span><span
+                        class="hour">16:00</span><span class="hour">17:00</span><span class="hour">18:00</span><span
+                        class="hour">19:00</span><span class="hour">20:00</span><span class="hour">21:00</span><span
+                        class="hour">22:00</span><span class="hour">23:00</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-days" style="display: block;">
+        <table class=" table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">五月 2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            <tr>
+                <th class="dow">一</th>
+                <th class="dow">二</th>
+                <th class="dow">三</th>
+                <th class="dow">四</th>
+                <th class="dow">五</th>
+                <th class="dow">六</th>
+                <th class="dow">日</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="day old">27</td>
+                <td class="day old">28</td>
+                <td class="day old">29</td>
+                <td class="day old">30</td>
+                <td class="day">1</td>
+                <td class="day">2</td>
+                <td class="day">3</td>
+            </tr>
+            <tr>
+                <td class="day">4</td>
+                <td class="day">5</td>
+                <td class="day">6</td>
+                <td class="day">7</td>
+                <td class="day">8</td>
+                <td class="day">9</td>
+                <td class="day">10</td>
+            </tr>
+            <tr>
+                <td class="day">11</td>
+                <td class="day">12</td>
+                <td class="day">13</td>
+                <td class="day">14</td>
+                <td class="day">15</td>
+                <td class="day">16</td>
+                <td class="day">17</td>
+            </tr>
+            <tr>
+                <td class="day">18</td>
+                <td class="day">19</td>
+                <td class="day">20</td>
+                <td class="day">21</td>
+                <td class="day">22</td>
+                <td class="day">23</td>
+                <td class="day">24</td>
+            </tr>
+            <tr>
+                <td class="day">25</td>
+                <td class="day">26</td>
+                <td class="day">27</td>
+                <td class="day today active">28</td>
+                <td class="day">29</td>
+                <td class="day">30</td>
+                <td class="day">31</td>
+            </tr>
+            <tr>
+                <td class="day new">1</td>
+                <td class="day new">2</td>
+                <td class="day new">3</td>
+                <td class="day new">4</td>
+                <td class="day new">5</td>
+                <td class="day new">6</td>
+                <td class="day new">7</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-months" style="display: none;">
+        <table class="table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">2020</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="month">一月</span><span class="month">二月</span><span
+                        class="month">三月</span><span class="month">四月</span><span class="month active">五月</span><span
+                        class="month">六月</span><span class="month">七月</span><span class="month">八月</span><span
+                        class="month">九月</span><span class="month">十月</span><span class="month">十一月</span><span
+                        class="month">十二月</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="datetimepicker-years" style="display: none;">
+        <table class="table-condensed">
+            <thead>
+            <tr>
+                <th class="prev" style="visibility: visible;"><i class="icon-arrow-left"></i></th>
+                <th colspan="5" class="switch">2020-2029</th>
+                <th class="next" style="visibility: visible;"><i class="icon-arrow-right"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td colspan="7"><span class="year old">2019</span><span class="year active">2020</span><span
+                        class="year">2021</span><span class="year">2022</span><span class="year">2023</span><span
+                        class="year">2024</span><span class="year">2025</span><span class="year">2026</span><span
+                        class="year">2027</span><span class="year">2028</span><span class="year">2029</span><span
+                        class="year old">2030</span></td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7" class="today">今日</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+</body>
+</html>
