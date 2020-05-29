@@ -10,11 +10,11 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport">
     <title>jgweb</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="./static/zui.min.css">
-    <link rel="stylesheet" href="./static/zui-theme.css">
-    <link rel="stylesheet" href="./static/redefine.css">
-    <script language="JavaScript" type="text/javascript" src="./static/jquery-1.9.1.js"></script>
-    <script language="JavaScript" type="text/javascript" src="./static/datetimepicker.js"></script>
+    <link rel="stylesheet" href="./static/css/zui.min.css">
+    <link rel="stylesheet" href="./static/css/zui-theme.css">
+    <link rel="stylesheet" href="./static/css/redefine.css">
+    <script language="JavaScript" type="text/javascript" src="./static/js/jquery-1.9.1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./static/js/datetimepicker.js"></script>
 </head>
 
 <body>
@@ -189,198 +189,22 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-                <nav class="menu" data-toggle="menu" style="width: 200px">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#atlas_modal"><i
-                            class="icon-plus-sign"></i> 新建图册
-                    </button>
-
-                    <ul class="nav nav-primary" id="atlas_nav">
-                        <li class="atlas_active" data-atlasid="8"><a href="javascript:;">
-                            <span class="altlas_name">默认图册 (35141)</span></a></li>
-                        <li data-atlasid="9">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="荣欣装潢&amp;浮生DESIGN (198)">荣欣装潢&amp;浮生DESIGN (198)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;9&#39;,&#39;荣欣装潢&amp;浮生DESIGN&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;9&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="10">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">圣都装饰 (716)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;10&#39;,&#39;圣都装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;10&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="11">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="华辰国际装饰原创中心设计1377752218-昌敏 (177)">华辰国际装饰原创中心设计1377752218-昌敏 (177)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit"
-                               onclick="atlas_edit(&#39;11&#39;,&#39;华辰国际装饰原创中心设计1377752218-昌敏&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;11&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="12">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="赛风装饰&amp;冯易建 (125)">赛风装饰&amp;冯易建 (125)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;12&#39;,&#39;赛风装饰&amp;冯易建&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;12&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="13">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">丽园装饰 (240)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;13&#39;,&#39;丽园装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;13&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="14">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="百仕合&amp;源艺装饰 (71)">百仕合&amp;源艺装饰 (71)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;14&#39;,&#39;百仕合&amp;源艺装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;14&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="15">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">万润装饰-名瑞装饰 (49)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;15&#39;,&#39;万润装饰-名瑞装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;15&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="16">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">云鸿装饰 (165)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;16&#39;,&#39;云鸿装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;16&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="17">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">清松装饰- (43)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;17&#39;,&#39;清松装饰-&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;17&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="18">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">@标题：客餐厅 (17)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;18&#39;,&#39;@标题：客餐厅&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;18&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="19">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name"
-                                      title="天晟-&amp;泰禾装饰85856088 (195)">天晟-&amp;泰禾装饰85856088 (195)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;19&#39;,&#39;天晟-&amp;泰禾装饰85856088&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;19&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="20">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="非舍&amp;艺升装饰 (209)">非舍&amp;艺升装饰 (209)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;20&#39;,&#39;非舍&amp;艺升装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;20&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="21">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="华饰臻品&amp;仙居品东18805863888 (116)">华饰臻品&amp;仙居品东18805863888 (116)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit"
-                               onclick="atlas_edit(&#39;21&#39;,&#39;华饰臻品&amp;仙居品东18805863888&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;21&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="23">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="东易日盛&amp;尚层装饰 (210)">东易日盛&amp;尚层装饰 (210)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit"
-                               onclick="atlas_edit(&#39;23&#39;,&#39;东易日盛&amp;尚层装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;23&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="24">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">开美装饰 (865)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;24&#39;,&#39;开美装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;24&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="26">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">齐厦 (263)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;26&#39;,&#39;齐厦&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;26&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="27">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name">阡陌装饰-水木南山 (178)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit" onclick="atlas_edit(&#39;27&#39;,&#39;阡陌装饰-水木南山&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;27&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="28">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="铭尚晶瑞&amp;嘉业装饰 (88)">铭尚晶瑞&amp;嘉业装饰 (88)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit"
-                               onclick="atlas_edit(&#39;28&#39;,&#39;铭尚晶瑞&amp;嘉业装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;28&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li data-atlasid="29">
-                            <a href="javascript:;" style="padding-right:2px">
-                                <span class="altlas_name" title="铭都装饰&amp;庆源装饰 (173)">铭都装饰&amp;庆源装饰 (173)</span>
-                                <span class="pull-right">
-			    			<i class="icon-edit"
-                               onclick="atlas_edit(&#39;29&#39;,&#39;铭都装饰&amp;庆源装饰&#39;)"></i>&nbsp; <i
-                                        class="icon-trash" onclick="atlas_del(&#39;29&#39;)"></i>
-			    		  </span>
-                            </a>
-                        </li>
-                        <li class="atlas_active">
-                            <input style="float:left;width:75%;" type="text" id="G_name" class="form-control"
-                                   placeholder="作品名_全相册">
-                            <button style="float:left;width:25%;" class="btn btn-info" id="O_G_name">搜索</button>
-                        </li>
+                <div class="container-fluid px-lg-5">
+                <!-- nav -->
+                <nav class="py-4 d-lg-flex">
+                    <label for="drop" class="toggle">菜单</label>
+                    <input type="checkbox" id="drop"/>
+                    <ul class="menu mt-2 ml-auto">
+                        <li class="active"><a href="/">首页</a></li>
+                        <li><a href="#about" class="scroll">关于</a></li>
+                        <li><a href="#blog" class="scroll">作品</a></li>
+                        <li><a href="#blog" class="scroll">价格</a></li>
+                        <li><a href="#blog" class="scroll">工具</a></li>
+                        <li><a href="#contact" class="scroll">联系</a></li>
                     </ul>
                 </nav>
+                <!-- //nav -->
+            </div>
             </div>
             <div class="col-md-9">
                 <div class="row" style="margin-top:20px;">
@@ -462,7 +286,7 @@
                                         '</div>';
                                 } else {
                                     h += '<div class="pull-left works_intro" style="padding-left:50px">' +
-                                        '<img src="./static/images/publishing.gif" />' +
+                                        '<img src="./static/picture/publishing.gif" />' +
                                         '<div class="text-muted">正在生成全景，大概需要2-5分钟...</div>' +
                                         '</div>' +
                                         '<div class="pull-right works_edit">' +
@@ -881,7 +705,7 @@
 </div>
 
 
-<script src="./static/jquery.zclip.min.js"></script>
+<script src="./static/js/jquery.zclip.min.js"></script>
 <script>
     var cdn_host = "http://cdn.jingaisheji.com/";
     var host = "http://dev.jingaisheji.com/";
@@ -1159,7 +983,7 @@
                         '<div class="item-content">' +
                         '<div class=pull-left><input type="checkbox" style="margin:20px 10px 0 0" name="project_checkbox" data-pid="' + o.id + '"></div>' +
                         '<div class="pull-left">' +
-                        '<img src="' + (o.thumb_path ? o.thumb_path : "./static/images/play.png") + '" width="60" height="60" class="img-rounded" >' +
+                        '<img src="' + (o.thumb_path ? o.thumb_path : "./static/play.png") + '" width="60" height="60" class="img-rounded" >' +
                         '</div>' +
                         '<div class="pull-left works_intro" >' +
                         '<a href="' + cdn_host + 'video/play.html?vid=' + o.id + '" class="works_name" target="_blank">' + o.vname + '</a>&nbsp;&nbsp;&nbsp;&nbsp;' +
@@ -1519,13 +1343,13 @@
             <p class="bq">Copyright©2016 金该全景网 All Rights Reserved <a style="color: #bfbfbf;text-decoration: underline;"
                                                                       href="https://dev.jingaisheji.com/member/#"
                                                                       target="_blank"></a>
-                <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278696478'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/stat.php%3Fid%3D1278696478%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+<!--                <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278696478'%3E%3C/span%3E%3Cscript src='https://s9.cnzz.com/stat.php%3Fid%3D1278696478%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>-->
                 <span id="cnzz_stat_icon_1278696478"><a href="https://www.cnzz.com/stat/website.php?web_id=1278696478"
                                                         target="_blank" title="站长统计"><img border="0" hspace="0"
                                                                                           vspace="0"
                                                                                           src="./static/pic.gif"></a></span>
-                <script src="./static/stat.php" type="text/javascript"></script>
-                <script src="./static/core.php" charset="utf-8" type="text/javascript"></script>
+                <script src="./static/css/stat.php" type="text/javascript"></script>
+                <script src="./static/css/core.php" charset="utf-8" type="text/javascript"></script>
             </p>
         </div>
     </div>
